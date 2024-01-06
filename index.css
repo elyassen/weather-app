@@ -44,8 +44,8 @@ body{
     
 }
 .city{
-    background: rgba(255, 255, 255, 0.2); /* Adjust the alpha (fourth value) for transparency */
-    backdrop-filter: blur(10px); /* Adjust the blur value to control the blurriness */
+    background: rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(10px); 
     border-radius: 2px;
     outline: none;
     border: none;
@@ -60,8 +60,8 @@ body{
     margin-top: 5px;
 }
 .submit-city{
-    background: rgba(255, 255, 255, 1); /* Adjust the alpha (fourth value) for transparency */
-    backdrop-filter: blur(10px); /* Adjust the blur value to control the blurriness */
+    background: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(10px); 
     
     border: none;
     outline: none;
@@ -107,23 +107,25 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.2); /* Adjust the alpha (fourth value) for transparency */
-    backdrop-filter: blur(10px); /* Adjust the blur value to control the blurriness */
+    background: rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(10px);
     border-radius: 13px;
     padding: 13px;
-    width: 25%;
+    flex: .25;
+   
 }
 .sunset{
     display: flex;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.2); /* Adjust the alpha (fourth value) for transparency */
-    backdrop-filter: blur(10px); /* Adjust the blur value to control the blurriness */
+    background: rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(10px); 
     border-radius: 15px;
     padding: 13px;
     min-width: 70px;
     display: flex;
     align-items: center;
-    width: 25%;
+    flex: .25;
+    
 }
 .top-layer-left{
     display: flex;
@@ -133,13 +135,14 @@ body{
 .wind{
     display: flex;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.2); /* Adjust the alpha (fourth value) for transparency */
-    backdrop-filter: blur(10px); /* Adjust the blur value to control the blurriness */
+    background: rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(10px); 
     border-radius: 15px;
     padding: 13px;
-    width: 22%;
+    flex: .25;
     align-items: center;
     justify-content: center;
+    
     
 }
 .last-layer{
@@ -151,19 +154,20 @@ body{
 .humidity{
     display: flex;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.2); /* Adjust the alpha (fourth value) for transparency */
-    backdrop-filter: blur(10px); /* Adjust the blur value to control the blurriness */
+    background: rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(10px); 
     border-radius: 15px;
     padding: 13px;
-    width: 22%;
+    flex: .25;
     display: flex;
     align-items: center;
+    
 }
 
 .forecast-area{
     display: flex;
-    background: rgba(255, 255, 255, 0.2); /* Adjust the alpha (fourth value) for transparency */
-    backdrop-filter: blur(10px); /* Adjust the blur value to control the blurriness */
+    background: rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(10px); 
     border-radius: 10px;
     padding:4px;
 
@@ -173,6 +177,42 @@ body{
     justify-content: flex-start;
     overflow-x: scroll;
 }
+.temp-area{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.error{
+    width: 20vw;
+    height: 20vh;
+    background: rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(10px); 
+    border-radius: 15px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    button{
+        
+        padding:8px 20px;
+        border: none;
+        outline: none;
+        background: rgba(160, 157, 157, 0.8); 
+        backdrop-filter: blur(10px); 
+        border-radius: 5px;
+        
+        
+    }
+}
+.end{
+    display: none;
+}
+
 .inner-div{
     display: flex;
     min-width: 80px;
@@ -184,12 +224,23 @@ body{
 @media (max-width:600px){
     .wrapper{
         width: 100%;
+        
+    }
+    .second-area{
+        width: 100%;
     }
     .top-layer{
         flex-direction: column;
         align-items: center;
         
         
+    }
+    .temp-area{
+        align-items: center;
+        margin-top: 7px;
+    }
+    .temp{
+        margin-top: -8px;
     }
     .container{
         margin-top: 0;
@@ -243,6 +294,11 @@ body{
         flex-direction: column;
         align-items: center;
     }
+    .error{
+        width: 80%;
+        font-size: 12px;
+        
+    }
     
 
 }
@@ -252,6 +308,23 @@ body{
 
 .forecast-area::-webkit-scrollbar{
     display: none;
+}
+@media(max-width:500px){
+    
+    
+    .sunrise{
+        min-width: 47%;
+        
+    }
+    .sunset{
+        min-width: 47%;
+    }
+    .wind{
+        min-width: 47%;
+    }
+    .humidity{
+        min-width: 47%;
+    }
 }
 @media (max-width:320px){
     .search-area{

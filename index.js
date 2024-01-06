@@ -26,10 +26,23 @@ async function checkWeatherSearch(city) {
   const req = await fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
   );
-  const res = await req.json();
-  console.log("input function being executed");
-  weatherForecast(res.name);
-  if (res.name) {
+
+  if (req.status !== 200) {
+    console.log("Error fetching weather data:", req.status);
+    const err = document.querySelector(".end");
+    err.classList.add("error");
+    err.classList.remove("end");
+    const okbtn = document.querySelector(".ok");
+    okbtn.addEventListener("click", () => {
+      const err = document.querySelector(".error");
+      err.classList.add("end");
+      err.classList.remove("error");
+    });
+  } else {
+    console.log("input function being executed");
+    const res = await req.json();
+
+    weatherForecast(res.name);
     Showvalues(res);
   }
 }
@@ -157,4 +170,14 @@ function Showvalues(res) {
   ).innerHTML = `${sunset.getHours()}:${sunset.getMinutes()}`;
   document.querySelector(".wind-text").innerHTML = res.wind.speed;
   document.querySelector(".humidity-text").innerHTML = res.main.humidity;
+  console.log(res.weather[0].main);
+  if (res.weather[0].main == "Clouds") {
+    document.querySelector(".weather-img").src = "./img/clouds.png";
+  }
+  if (res.weather[0].main == "Rain") {
+    document.querySelector(".weather-img").src = "./img/rain.png";
+  }
+  if (res.weather[0].main == "Drizzle") {
+    document.querySelector(".weather-img").src = "./img/drizze.png";
+  }
 }
